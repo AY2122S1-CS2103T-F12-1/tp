@@ -47,7 +47,7 @@ public class StorageManager implements Storage {
     }
 
 
-    // ================ AddressBook methods ==============================
+    // ================ SmartNus methods ==============================
 
     @Override
     public Path getSmartNusFilePath() {
