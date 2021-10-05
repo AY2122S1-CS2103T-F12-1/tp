@@ -24,7 +24,7 @@ import seedu.address.testutil.QuestionBuilder;
 
 public class AddressBookTest {
 
-    private final AddressBook addressBook = new AddressBook();
+    private final SmartNus addressBook = new SmartNus();
 
     @Test
     public void constructor() {
@@ -38,7 +38,7 @@ public class AddressBookTest {
 
     @Test
     public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        AddressBook newData = getTypicalAddressBook();
+        SmartNus newData = getTypicalAddressBook();
         addressBook.resetData(newData);
         assertEquals(newData, addressBook);
     }
@@ -49,7 +49,7 @@ public class AddressBookTest {
         Question editedAlice = new QuestionBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Question> newQuestions = Arrays.asList(ALICE, editedAlice);
-        AddressBookStub newData = new AddressBookStub(newQuestions);
+        SmartNusStub newData = new SmartNusStub(newQuestions);
 
         assertThrows(DuplicatePersonException.class, () -> addressBook.resetData(newData));
     }
@@ -86,10 +86,10 @@ public class AddressBookTest {
     /**
      * A stub ReadOnlyAddressBook whose questions list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyAddressBook {
+    private static class SmartNusStub implements ReadOnlySmartNus {
         private final ObservableList<Question> questions = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Question> questions) {
+        SmartNusStub(Collection<Question> questions) {
             this.questions.setAll(questions);
         }
 

@@ -19,26 +19,26 @@ import seedu.address.model.question.Question;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final SmartNus addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Question> filteredQuestions;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlySmartNus addressBook, ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(addressBook, userPrefs);
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.addressBook = new SmartNus(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredQuestions = new FilteredList<>(this.addressBook.getQuestionList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new SmartNus(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -79,12 +79,12 @@ public class ModelManager implements Model {
     //=========== AddressBook ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
+    public void setAddressBook(ReadOnlySmartNus addressBook) {
         this.addressBook.resetData(addressBook);
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
+    public ReadOnlySmartNus getAddressBook() {
         return addressBook;
     }
 

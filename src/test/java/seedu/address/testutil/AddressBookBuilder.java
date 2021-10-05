@@ -1,6 +1,6 @@
 package seedu.address.testutil;
 
-import seedu.address.model.AddressBook;
+import seedu.address.model.SmartNus;
 import seedu.address.model.question.Question;
 
 /**
@@ -10,13 +10,13 @@ import seedu.address.model.question.Question;
  */
 public class AddressBookBuilder {
 
-    private AddressBook addressBook;
+    private SmartNus addressBook;
 
     public AddressBookBuilder() {
-        addressBook = new AddressBook();
+        addressBook = new SmartNus();
     }
 
-    public AddressBookBuilder(AddressBook addressBook) {
+    public AddressBookBuilder(SmartNus addressBook) {
         this.addressBook = addressBook;
     }
 
@@ -28,7 +28,7 @@ public class AddressBookBuilder {
         return this;
     }
 
-    public AddressBook build() {
+    public SmartNus build() {
         return addressBook;
     }
 }
