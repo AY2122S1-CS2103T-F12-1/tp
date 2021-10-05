@@ -27,7 +27,7 @@ public interface SmartNusStorage {
     Optional<ReadOnlySmartNus> readSmartNus() throws DataConversionException, IOException;
 
     /**
-     * @see #getAddressBookFilePath()
+     * @see #getSmartNusFilePath()
      */
     Optional<ReadOnlySmartNus> readSmartNus(Path filePath) throws DataConversionException, IOException;
 
