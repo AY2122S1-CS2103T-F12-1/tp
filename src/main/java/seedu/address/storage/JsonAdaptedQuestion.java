@@ -22,7 +22,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Jackson-friendly version of {@link Question}.
  */
-class JsonAdaptedPerson {
+class JsonAdaptedQuestion {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Question's %s field is missing!";
 
@@ -36,9 +36,9 @@ class JsonAdaptedPerson {
      * Constructs a {@code JsonAdaptedPerson} with the given question details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+    public JsonAdaptedQuestion(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
+                               @JsonProperty("email") String email, @JsonProperty("address") String address,
+                               @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -51,7 +51,7 @@ class JsonAdaptedPerson {
     /**
      * Converts a given {@code Question} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Question source) {
+    public JsonAdaptedQuestion(Question source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -67,9 +67,9 @@ class JsonAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted question.
      */
     public Question toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
+        final List<Tag> questionTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+            questionTags.add(tag.toModelType());
         }
 
         // TODO: Implement loading functionality for choices
@@ -94,6 +94,7 @@ class JsonAdaptedPerson {
         if (email == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
         }
+
         if (!Email.isValidEmail(email)) {
             throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
         }
@@ -107,7 +108,7 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        final Set<Tag> modelTags = new HashSet<>(questionTags);
 
         final Set<Choice> modelChoices = new HashSet<>(questionChoices);
 
