@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
+import seedu.address.model.SmartNus;
 import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySmartNus;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.question.Question;
 import seedu.address.testutil.QuestionBuilder;
@@ -118,12 +118,12 @@ class AddMcqCommandTest {
         }
 
         @Override
-        public Path getAddressBookFilePath() {
+        public Path getSmartNusFilePath() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setAddressBookFilePath(Path addressBookFilePath) {
+        public void setSmartNusFilePath(Path SmartNusFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -133,12 +133,12 @@ class AddMcqCommandTest {
         }
 
         @Override
-        public void setAddressBook(ReadOnlyAddressBook newData) {
+        public void setSmartNus(ReadOnlySmartNus newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
+        public ReadOnlySmartNus getSmartNus() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -187,8 +187,8 @@ class AddMcqCommandTest {
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
-            return new AddressBook();
+        public ReadOnlySmartNus getSmartNus() {
+            return new SmartNus();
         }
     }
 }

@@ -20,7 +20,7 @@ class QuizCommandTest {
     @BeforeEach
     public void setUp() {
         model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel = new ModelManager(model.getSmartNus(), new UserPrefs());
     }
 
     @Test

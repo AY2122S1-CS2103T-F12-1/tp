@@ -37,13 +37,8 @@ public class AddCommandIntegrationTest {
     }
 
     @Test
-<<<<<<< HEAD
-    public void execute_duplicateQuestion_throwsCommandException() {
-        Question questionInList = model.getAddressBook().getQuestionList().get(0);
-=======
     public void execute_duplicatePerson_throwsCommandException() {
         Question questionInList = model.getSmartNus().getQuestionList().get(0);
->>>>>>> 29d5d814a54d7b119ed6816407f131024b45df58
         assertCommandFailure(new AddCommand(questionInList), model, AddCommand.MESSAGE_DUPLICATE_QUESTION);
     }
 
