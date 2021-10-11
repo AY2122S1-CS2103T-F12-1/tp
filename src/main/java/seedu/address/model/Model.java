@@ -37,20 +37,20 @@ public interface Model {
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getSmartNusFilePath();
 
     /**
      * Sets the user prefs' address book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setSmartNusFilePath(Path smartNusFilePath);
 
     /**
      * Replaces address book data with the data in {@code addressBook}.
      */
-    void setAddressBook(ReadOnlySmartNus addressBook);
+    void setSmartNus(ReadOnlySmartNus SmartNus);
 
     /** Returns the AddressBook */
-    ReadOnlySmartNus getAddressBook();
+    ReadOnlySmartNus getSmartNus();
 
     /**
      * Returns true if a question with the same identity as {@code question} exists in the address book.

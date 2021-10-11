@@ -42,7 +42,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new SmartNus(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(model.getFilteredQuestionList().get(0), editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -63,7 +63,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new SmartNus(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(lastQuestion, editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -76,7 +76,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new SmartNus(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -92,7 +92,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new SmartNus(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(model.getFilteredQuestionList().get(0), editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -112,7 +112,7 @@ public class EditCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         // edit question in filtered list into a duplicate in address book
-        Question questionInList = model.getAddressBook().getQuestionList().get(INDEX_SECOND_PERSON.getZeroBased());
+        Question questionInList = model.getSmartNus().getQuestionList().get(INDEX_SECOND_PERSON.getZeroBased());
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
                 new EditQuestionDescriptorBuilder(questionInList).build());
 
@@ -137,7 +137,7 @@ public class EditCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
         Index outOfBoundIndex = INDEX_SECOND_PERSON;
         // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getQuestionList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getSmartNus().getQuestionList().size());
 
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
                 new EditQuestionDescriptorBuilder().withName(VALID_NAME_BOB).build());

@@ -29,7 +29,7 @@ public class AddCommandIntegrationTest {
     public void execute_newPerson_success() {
         Question validQuestion = new QuestionBuilder().build();
 
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getSmartNus(), new UserPrefs());
         expectedModel.addQuestion(validQuestion);
 
         assertCommandSuccess(new AddCommand(validQuestion), model,
@@ -38,7 +38,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_duplicatePerson_throwsCommandException() {
-        Question questionInList = model.getAddressBook().getQuestionList().get(0);
+        Question questionInList = model.getSmartNus().getQuestionList().get(0);
         assertCommandFailure(new AddCommand(questionInList), model, AddCommand.MESSAGE_DUPLICATE_QUESTION);
     }
 
