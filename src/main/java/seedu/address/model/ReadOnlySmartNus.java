@@ -6,7 +6,7 @@ import seedu.address.model.question.Question;
 /**
  * Unmodifiable view of an address book
  */
-public interface ReadOnlyAddressBook {
+public interface ReadOnlySmartNus {
 
     /**
      * Returns an unmodifiable view of the questions list.

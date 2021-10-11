@@ -13,7 +13,7 @@ import seedu.address.model.question.UniqueQuestionList;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSameQuestion comparison)
  */
-public class AddressBook implements ReadOnlyAddressBook {
+public class SmartNus implements ReadOnlySmartNus {
 
     private final UniqueQuestionList questions;
 
@@ -28,12 +28,12 @@ public class AddressBook implements ReadOnlyAddressBook {
         questions = new UniqueQuestionList();
     }
 
-    public AddressBook() {}
+    public SmartNus() {}
 
     /**
      * Creates an AddressBook using the Questions in the {@code toBeCopied}
      */
-    public AddressBook(ReadOnlyAddressBook toBeCopied) {
+    public SmartNus(ReadOnlySmartNus toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -51,7 +51,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
-    public void resetData(ReadOnlyAddressBook newData) {
+    public void resetData(ReadOnlySmartNus newData) {
         requireNonNull(newData);
 
         setQuestions(newData.getQuestionList());
@@ -111,8 +111,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddressBook // instanceof handles nulls
-                && questions.equals(((AddressBook) other).questions));
+                || (other instanceof SmartNus // instanceof handles nulls
+                && questions.equals(((SmartNus) other).questions));
     }
 
     @Override

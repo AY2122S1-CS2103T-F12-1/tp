@@ -9,8 +9,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.AddressBook;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySmartNus;
+import seedu.address.model.SmartNus;
 import seedu.address.model.question.Question;
 
 /**
@@ -20,7 +20,6 @@ import seedu.address.model.question.Question;
 class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_QUESTION = "Questions list contains duplicate question(s).";
-
     private final List<JsonAdaptedQuestion> questions = new ArrayList<>();
 
     /**
@@ -36,7 +35,7 @@ class JsonSerializableAddressBook {
      *
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
-    public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
+    public JsonSerializableAddressBook(ReadOnlySmartNus source) {
         questions.addAll(source.getQuestionList().stream().map(JsonAdaptedQuestion::new).collect(Collectors.toList()));
     }
 
@@ -45,8 +44,9 @@ class JsonSerializableAddressBook {
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */
-    public AddressBook toModelType() throws IllegalValueException {
-        AddressBook addressBook = new AddressBook();
+
+    public SmartNus toModelType() throws IllegalValueException {
+        SmartNus addressBook = new SmartNus();
         for (JsonAdaptedQuestion jsonAdaptedQuestion : questions) {
             Question question = jsonAdaptedQuestion.toModelType();
             if (addressBook.hasQuestion(question)) {

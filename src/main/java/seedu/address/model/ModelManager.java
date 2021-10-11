@@ -19,26 +19,26 @@ import seedu.address.model.question.Question;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final SmartNus smartNus;
     private final UserPrefs userPrefs;
     private final FilteredList<Question> filteredQuestions;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given smartNus and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlySmartNus smartNus, ReadOnlyUserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, userPrefs);
+        requireAllNonNull(smartNus, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with address book: " + smartNus + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.smartNus = new SmartNus(smartNus);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredQuestions = new FilteredList<>(this.addressBook.getQuestionList());
+        filteredQuestions = new FilteredList<>(this.smartNus.getQuestionList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new SmartNus(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -66,42 +66,42 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+    public Path getSmartNusFilePath() {
+        return userPrefs.getSmartNusFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+    public void setSmartNusFilePath(Path smartNusFilePath) {
+        requireNonNull(smartNusFilePath);
+        userPrefs.setSmartNusFilePath(smartNusFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== SmartNus ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+    public void setSmartNus(ReadOnlySmartNus smartNus) {
+        this.smartNus.resetData(smartNus);
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
+    public ReadOnlySmartNus getSmartNus() {
+        return smartNus;
     }
 
     @Override
     public boolean hasQuestion(Question question) {
         requireNonNull(question);
-        return addressBook.hasQuestion(question);
+        return smartNus.hasQuestion(question);
     }
 
     @Override
     public void deleteQuestion(Question target) {
-        addressBook.removeQuestion(target);
+        smartNus.removeQuestion(target);
     }
 
     @Override
     public void addQuestion(Question question) {
-        addressBook.addQuestion(question);
+        smartNus.addQuestion(question);
         updateFilteredQuestionList(PREDICATE_SHOW_ALL_QUESTIONS);
     }
 
@@ -109,7 +109,7 @@ public class ModelManager implements Model {
     public void setQuestion(Question target, Question editedQuestion) {
         requireAllNonNull(target, editedQuestion);
 
-        addressBook.setQuestion(target, editedQuestion);
+        smartNus.setQuestion(target, editedQuestion);
     }
 
     //=========== Filtered Question List Accessors =============================================================
@@ -143,7 +143,7 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return addressBook.equals(other.addressBook)
+        return smartNus.equals(other.smartNus)
                 && userPrefs.equals(other.userPrefs)
                 && filteredQuestions.equals(other.filteredQuestions);
     }

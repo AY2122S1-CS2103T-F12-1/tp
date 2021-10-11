@@ -18,10 +18,15 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+<<<<<<< HEAD
 import seedu.address.logic.commands.EditCommand.EditQuestionDescriptor;
 import seedu.address.model.AddressBook;
+=======
+import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
+>>>>>>> 29d5d814a54d7b119ed6816407f131024b45df58
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.SmartNus;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.question.Question;
 import seedu.address.testutil.EditQuestionDescriptorBuilder;
@@ -42,7 +47,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_QUESTION_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(model.getFilteredQuestionList().get(0), editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -63,7 +68,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_QUESTION_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(lastQuestion, editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -76,7 +81,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_QUESTION_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -92,7 +97,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_QUESTION_SUCCESS, editedQuestion);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new SmartNus(model.getSmartNus()), new UserPrefs());
         expectedModel.setQuestion(model.getFilteredQuestionList().get(0), editedQuestion);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -112,8 +117,13 @@ public class EditCommandTest {
         showQuestionAtIndex(model, INDEX_FIRST_QUESTION);
 
         // edit question in filtered list into a duplicate in address book
+<<<<<<< HEAD
         Question questionInList = model.getAddressBook().getQuestionList().get(INDEX_SECOND_QUESTION.getZeroBased());
         EditCommand editCommand = new EditCommand(INDEX_FIRST_QUESTION,
+=======
+        Question questionInList = model.getSmartNus().getQuestionList().get(INDEX_SECOND_PERSON.getZeroBased());
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
+>>>>>>> 29d5d814a54d7b119ed6816407f131024b45df58
                 new EditQuestionDescriptorBuilder(questionInList).build());
 
         assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_QUESTION);
@@ -137,7 +147,7 @@ public class EditCommandTest {
         showQuestionAtIndex(model, INDEX_FIRST_QUESTION);
         Index outOfBoundIndex = INDEX_SECOND_QUESTION;
         // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getQuestionList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getSmartNus().getQuestionList().size());
 
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
                 new EditQuestionDescriptorBuilder().withName(VALID_NAME_BOB).build());

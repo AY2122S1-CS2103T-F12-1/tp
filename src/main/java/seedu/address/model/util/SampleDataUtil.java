@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import seedu.address.model.AddressBook;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlySmartNus;
+import seedu.address.model.SmartNus;
 import seedu.address.model.choice.Choice;
 import seedu.address.model.question.Importance;
 import seedu.address.model.question.MultipleChoiceQuestion;
@@ -40,8 +40,8 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyAddressBook getSampleAddressBook() {
-        AddressBook sampleAb = new AddressBook();
+    public static ReadOnlySmartNus getSampleAddressBook() {
+        SmartNus sampleAb = new SmartNus();
         for (Question sampleQuestion : getSampleQuestions()) {
             sampleAb.addQuestion(sampleQuestion);
         }
