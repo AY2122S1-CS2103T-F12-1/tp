@@ -16,10 +16,10 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.SmartNus;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlySmartNus;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.SmartNus;
 import seedu.address.model.question.Question;
 import seedu.address.testutil.QuestionBuilder;
 
@@ -123,7 +123,7 @@ class AddMcqCommandTest {
         }
 
         @Override
-        public void setSmartNusFilePath(Path SmartNusFilePath) {
+        public void setSmartNusFilePath(Path smartNusFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 

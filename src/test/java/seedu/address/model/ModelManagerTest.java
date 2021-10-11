@@ -95,13 +95,8 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-<<<<<<< HEAD
-        AddressBook addressBook = new AddressBookBuilder().withQuestion(ALICE).withQuestion(BENSON).build();
-        AddressBook differentAddressBook = new AddressBook();
-=======
-        SmartNus addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        SmartNus addressBook = new AddressBookBuilder().withQuestion(ALICE).withQuestion(BENSON).build();
         SmartNus differentAddressBook = new SmartNus();
->>>>>>> 29d5d814a54d7b119ed6816407f131024b45df58
         UserPrefs userPrefs = new UserPrefs();
 
         // same values -> returns true
