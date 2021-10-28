@@ -74,17 +74,7 @@ public interface Logic {
     Theme getTheme();
 
     /**
-     * Sets the user pref's theme.
+     * Sets the user pref's tehme.
      */
     void setTheme(Theme theme);
-
-    /**
-     * Sets the current panel to be shown.
-     */
-    void setPanel(String panel);
-
-    /**
-     * Returns the current panel to be shown.
-     */
-    String getPanel();
 }

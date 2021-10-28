@@ -143,14 +143,4 @@ public interface Model {
      * Returns the Theme.
      */
     Theme getTheme();
-
-    /**
-     * Sets the current panel to be shown.
-     */
-    void setPanel(String panel);
-
-    /**
-     * Returns the current panel to be shown.
-     */
-    String getPanel();
 }

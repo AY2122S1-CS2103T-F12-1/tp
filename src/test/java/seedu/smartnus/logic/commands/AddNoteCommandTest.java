@@ -162,16 +162,6 @@ public class AddNoteCommandTest {
         public Theme getTheme() {
             throw new AssertionError("This method should not be called.");
         }
-
-        @Override
-        public void setPanel(String panel) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public String getPanel() {
-            throw new AssertionError("This method should not be called.");
-        }
     }
 
     /**

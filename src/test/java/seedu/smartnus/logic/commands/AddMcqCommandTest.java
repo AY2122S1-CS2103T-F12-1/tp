@@ -193,16 +193,6 @@ class AddMcqCommandTest {
         }
 
         @Override
-        public void setPanel(String panel) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public String getPanel() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public void addNote(Note note) {
             throw new AssertionError("This method should not be called.");
         }

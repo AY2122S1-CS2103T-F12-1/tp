@@ -149,18 +149,6 @@ public class ModelManager implements Model {
         smartNus.setNote(target, editedNote);
     }
 
-
-    @Override
-    public void setPanel(String panel) {
-        requireNonNull(panel);
-        smartNus.setPanel(panel);
-    }
-
-    @Override
-    public String getPanel() {
-        return smartNus.getPanel();
-    }
-
     //=========== Filtered Question List Accessors =============================================================
 
     /**

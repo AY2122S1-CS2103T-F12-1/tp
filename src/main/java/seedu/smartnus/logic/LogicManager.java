@@ -119,14 +119,4 @@ public class LogicManager implements Logic {
     public void setTheme(Theme theme) {
         model.setTheme(theme);
     }
-
-    @Override
-    public void setPanel(String panel) {
-        model.setPanel(panel);
-    }
-
-    @Override
-    public String getPanel() {
-        return model.getPanel();
-    }
 }

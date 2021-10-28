@@ -1,4 +1,4 @@
-package seedu.smartnus.ui.card;
+package seedu.smartnus.ui;
 
 import java.util.Comparator;
 
@@ -9,7 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.smartnus.model.choice.Choice;
 import seedu.smartnus.model.question.Question;
-import seedu.smartnus.ui.UiPart;
 
 /**
  * An UI component that displays information of a {@code Question}.

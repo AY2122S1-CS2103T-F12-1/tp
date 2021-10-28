@@ -1,11 +1,10 @@
-package seedu.smartnus.ui.card;
+package seedu.smartnus.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.smartnus.model.note.Note;
-import seedu.smartnus.ui.UiPart;
 
 /**
  * An UI component that displays information of a {@code Question}.

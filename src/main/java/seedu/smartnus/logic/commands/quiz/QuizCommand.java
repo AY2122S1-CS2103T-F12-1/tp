@@ -66,7 +66,7 @@ public class QuizCommand extends Command {
 
         // TODO: Find some other way of doing this? Making the constructor so long isn't that good as well
         //       Maybe explore overloading or something I'm not sure
-        return new CommandResult(MESSAGE_SUCCESS, false, false, true);
+        return new CommandResult(MESSAGE_SUCCESS, false, false, true, false);
     }
 
     /**

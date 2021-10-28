@@ -34,7 +34,6 @@ import seedu.smartnus.storage.JsonSmartNusStorage;
 import seedu.smartnus.storage.JsonUserPrefsStorage;
 import seedu.smartnus.storage.StorageManager;
 import seedu.smartnus.testutil.QuestionBuilder;
-import seedu.smartnus.ui.panel.QuestionListPanel;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");
@@ -100,12 +99,6 @@ public class LogicManagerTest {
     public void theme_test() {
         logic.setTheme(new Theme());
         assertEquals(new LightTheme(), logic.getTheme());
-    }
-
-    @Test
-    public void panel_test() {
-        logic.setPanel(QuestionListPanel.QUESTION_PANEL);
-        assertEquals(QuestionListPanel.QUESTION_PANEL, logic.getPanel());
     }
 
     /**

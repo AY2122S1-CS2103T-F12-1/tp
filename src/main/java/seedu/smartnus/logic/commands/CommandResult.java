@@ -20,14 +20,18 @@ public class CommandResult {
     /** The quiz should start. */
     private final boolean quizStart;
 
+    /** display notes to the user. */
+    private final boolean isList;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean quizStart) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean quizStart, boolean isList) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.quizStart = quizStart;
+        this.isList = isList;
     }
 
     /**
@@ -35,7 +39,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -52,6 +56,10 @@ public class CommandResult {
 
     public boolean isQuizStart() {
         return quizStart;
+    }
+
+    public boolean isList() {
+        return isList;
     }
 
     @Override
@@ -73,7 +81,7 @@ public class CommandResult {
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, quizStart);
+        return Objects.hash(feedbackToUser, showHelp, exit, quizStart, isList);
     }
 
 }

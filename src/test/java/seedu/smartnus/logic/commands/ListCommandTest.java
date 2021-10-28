@@ -1,7 +1,5 @@
 package seedu.smartnus.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static seedu.smartnus.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.smartnus.logic.commands.CommandTestUtil.showQuestionAtIndex;
 import static seedu.smartnus.testutil.TypicalIndexes.INDEX_FIRST_QUESTION;
@@ -37,16 +35,5 @@ public class ListCommandTest {
     public void execute_listIsFiltered_showsEverything() {
         showQuestionAtIndex(model, INDEX_FIRST_QUESTION);
         assertCommandSuccess(new ListCommand("question"), model, ListCommand.MESSAGE_SUCCESS_QUESTIONS, expectedModel);
-    }
-
-    @Test
-    public void execute_listNotes() {
-        assertCommandSuccess(new ListCommand("notes"), model, ListCommand.MESSAGE_SUCCESS_NOTES, expectedModel);
-    }
-
-    @Test
-    public void test_equals() {
-        assertEquals(new ListCommand("question"), new ListCommand("question"));
-        assertNotEquals(new ListCommand("question"), new ListCommand("notes"));
     }
 }
